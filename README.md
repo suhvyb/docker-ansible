@@ -61,6 +61,12 @@ To find out the IP address of your ansible-managed container, from your local ma
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ansible-managed
 '''
 
+Example inventory.ini file:
+'''sh
+[managed]
+ansible-managed ansible_host=172.19.0.2 ansible_user=root ansible_ssh_private_key_file=/root/.ssh/id_rsa ansible_python_interpreter=/usr/bin/python3
+'''
+
 ## Cleanup
 To remove all containers, images, networks, and SSH keys, run:
 ```sh
