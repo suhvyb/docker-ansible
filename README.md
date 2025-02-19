@@ -56,6 +56,11 @@ From inside the container, you can SSH into the managed node:
 ssh root@ansible-managed
 ```
 
+To find out the IP address of your ansible-managed container, from your local machine run:
+'''sh
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' ansible-managed
+'''
+
 ## Cleanup
 To remove all containers, images, networks, and SSH keys, run:
 ```sh
